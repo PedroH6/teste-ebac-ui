@@ -7,9 +7,9 @@ describe('Funcionalidade: Login', () => {
           cy.visit('minha-conta')
     });
 
-    afterEach(() => {
-        cy.screenshot()
-    });
+    // afterEach(() => {
+    //     cy.screenshot()
+    // });
 
     it('Deve fazer login com sucesso', () => {
         cy.get('#username').type('pedroteste@teste.com.br')
@@ -45,13 +45,19 @@ describe('Funcionalidade: Login', () => {
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, pedroteste (não é pedroteste? Sair)')
     });
 
-    it.only('Deve fazer login com sucesso - Usando Fixture', () => {
+    it('Deve fazer login com sucesso - Usando Fixture', () => {
             cy.fixture('perfil').then(dados => {
             cy.get('#username').type(dados.usuario)
             cy.get('#password').type(dados.senha, {log: false})
             cy.get('.woocommerce-form > .button').click()
             cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, pedroteste (não é pedroteste? Sair)')
         })
+    });
+
+    it.only('deve fazer login com sucesso - Usando comandos customizados', () => {
+        cy.login('pedroteste@teste.com.br', 'teste123')
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, pedroteste (não é pedroteste? Sair)')
+        
     });
 })
 
