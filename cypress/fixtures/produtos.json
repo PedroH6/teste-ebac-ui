@@ -1,0 +1,15 @@
+[
+    {
+        "nomeProduto": "Argus All-Weather Tank",
+        "tamanho": "XS",
+        "cor": "Gray",
+        "quantidade": 2
+    },
+     {
+        "nomeProduto": "Atlas Fitness Tank",
+        "tamanho": "S",
+        "cor": "Blue",
+        "quantidade": 3
+    }
+
+]
